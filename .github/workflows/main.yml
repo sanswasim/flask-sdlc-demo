@@ -25,7 +25,4 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install --upgrade pip
-        pip install -r requirements.txt || pip install flask
-
-    - name: Run Flask app (skip in CI)
-      run: echo "Flask app checked - deployment step would go here."
+        pip install flask
