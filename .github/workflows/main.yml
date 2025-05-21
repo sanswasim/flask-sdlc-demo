@@ -2,26 +2,29 @@ name: Flask CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: 3.9
 
-    - name: Install dependencies
+    - name: Create and activate virtual environment
       run: |
         python -m venv venv
+        source venv/bin/activate
         ./venv/bin/pip install --upgrade pip
         ./venv/bin/pip install flask
+
+    - name: List files to verify
+      run: ls -la
