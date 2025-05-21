@@ -19,12 +19,10 @@ jobs:
       with:
         python-version: 3.9
 
-    - name: Create and activate virtual environment
+    - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
-        ./venv/bin/pip install --upgrade pip
-        ./venv/bin/pip install flask
+        pip install --upgrade pip
+        pip install flask
 
     - name: List files to verify
       run: ls -la
